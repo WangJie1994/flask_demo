@@ -1,0 +1,23 @@
+{% if name %}
+    hello, {{ name }}!
+{% else %}
+    hello, stranger!
+{% endif %}
+
+<ul>
+    {% for comment in comments %}
+        <li>
+            {{ comment }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% import 'macros.html' as macros %}
+
+<ul>
+    {% for comment in comments %}
+        {{ macros.render_comment(comment) }}
+    {% endfor %}
+</ul>
+
+{% include 'index.html' %}
